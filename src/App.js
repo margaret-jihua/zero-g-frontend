@@ -33,10 +33,13 @@ function App() {
 
   useEffect(() => {
     let token;
-    if (!localStorage.getItem('jwToken')) {
+    console.log(localStorage.getItem('jwtToken'));
+    if (!localStorage.getItem('jwtToken')) {
+      console.log('false');
       setIsAuthenticated(false);
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
+      console.log(token);
       setAuthToken(localStorage.jwtToken);
       setCurrentUser(token);
       setIsAuthenticated(true);
