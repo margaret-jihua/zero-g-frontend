@@ -27,6 +27,7 @@ const Form = ({ inputs, onSubmit }) => {
               value={input.value}
               onChange={input.onChange}
               className='form-control'
+              required
             />
           </div>
         );
