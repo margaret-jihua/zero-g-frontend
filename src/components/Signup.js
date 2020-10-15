@@ -129,7 +129,16 @@ const Signup = () => {
 
     if (formIdx >= 1) {
       if (password === confirmPassword) {
-        const newUser = { name, email, password, confirmPassword };
+        const newUser = {
+          name,
+          email,
+          password,
+          confirmPassword,
+          mass,
+          height,
+          age,
+          boneDensity,
+        };
 
         axios
           .post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
