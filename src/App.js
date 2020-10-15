@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Workout from './components/Workout';
 import './App.scss';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -79,6 +80,11 @@ function App() {
           <PrivateRoute
             path='/profile'
             component={Profile}
+            user={currentUser}
+          />
+          <PrivateRoute
+            path='/workout'
+            component={Workout}
             user={currentUser}
           />
           <Route exact path='/' component={Welcome} />

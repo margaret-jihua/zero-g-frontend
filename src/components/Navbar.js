@@ -40,6 +40,11 @@ const Navbar = (props) => {
                 </NavLink>
               </li>
               <li className='nav-item'>
+                <NavLink className='nav-link' to='/workout'>
+                  Workout
+                </NavLink>
+              </li>
+              <li className='nav-item'>
                 <span
                   onClick={props.handleLogout}
                   className='nav-link logout-link'

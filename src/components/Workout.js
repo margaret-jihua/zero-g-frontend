@@ -4,7 +4,9 @@ import Form from './Form';
 
 const Workout = (props) => {
   const [update, setUpdate] = useState(false);
-  const [workoutName, setWorkoutName] = useState(props.workoutName || '');
+  const [workoutName, setWorkoutName] = useState(
+    props.workoutName || 'Workout Name'
+  );
   const [workoutTime, setWorkoutTime] = useState(props.workoutTime || 10);
 
   const handleWorkoutName = (e) => {
