@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import Form from './Form';
+
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Signup = () => {
+  /**
+   * state = {
+   *   name: '',
+   *  password: ''
+   * }
+   */
+
+  //  this.setState({
+  //          name: e.target.value
+  // })
+  // setState(e.target.value)
+  //   Form Fields
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
   let [confirmPassword, setConfirmPassword] = useState('');
+  let [mass, setMass] = useState(30);
+  let [height, setHeight] = useState(60);
+  let [age, setAge] = useState(20);
+  let [boneDensity, setBoneDensity] = useState(100);
+
   let [redirect, setRedirct] = useState('');
+  let [formIdx, setFormIdx] = useState(0);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -26,21 +46,112 @@ const Signup = () => {
     setConfirmPassword(e.target.value);
   };
 
+  const handleAge = (e) => {
+    setAge(e.target.value);
+  };
+
+  const handleBoneDensity = (e) => {
+    setBoneDensity(e.target.value);
+  };
+  //   const fieldHandler = (e, setState) => {
+  //       setState(e.target.value)
+  //   }
+
+  const handleMass = (e) => {
+    setMass(e.target.value);
+  };
+
+  const handleHeight = (e) => {
+    setHeight(e.target.value);
+  };
+
+  const formData = [
+    {
+      inputs: [
+        {
+          name: 'Name',
+          value: name,
+          onChange: handleName,
+          type: 'text',
+        },
+        {
+          name: 'Email',
+          value: email,
+          onChange: handleEmail,
+          type: 'email',
+        },
+        {
+          name: 'Password',
+          value: password,
+          onChange: handlePassword,
+          type: 'password',
+        },
+        {
+          name: 'Confirm Password',
+          value: confirmPassword,
+          onChange: handleConfirmPassword,
+          type: 'password',
+        },
+      ],
+    },
+    {
+      inputs: [
+        {
+          name: 'Mass',
+          value: mass,
+          onChange: handleMass,
+          type: 'range',
+        },
+        {
+          name: 'Height',
+          value: height,
+          onChange: handleHeight,
+          type: 'range',
+        },
+        {
+          name: 'Age',
+          value: age,
+          onChange: handleAge,
+          type: 'range',
+        },
+        {
+          name: 'Bone Density',
+          value: boneDensity,
+          onChange: handleBoneDensity,
+          type: 'range',
+        },
+      ],
+    },
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password === confirmPassword) {
-      const newUser = { name, email, password, confirmPassword };
+    if (formIdx >= 1) {
+      if (password === confirmPassword) {
+        const newUser = {
+          name,
+          email,
+          password,
+          confirmPassword,
+          mass,
+          height,
+          age,
+          boneDensity,
+        };
 
-      axios
-        .post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
-        .then((response) => {
-          console.log(response);
-          setRedirct(true);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        axios
+          .post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
+          .then((response) => {
+            console.log(response);
+            setRedirct(true);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    } else {
+      setFormIdx(formIdx + 1);
     }
   };
 
@@ -51,51 +162,7 @@ const Signup = () => {
       <div className='col-md-7 offset-md-3'>
         <div className='card card-body'>
           <h2 className='py-2'>Signup</h2>
-          <form action='/ideas' method='POST' onSubmit={handleSubmit}>
-            <div className='form-group'>
-              <label htmlFor='name'>Name</label>
-              <input
-                type='text'
-                name='name'
-                value={name}
-                onChange={handleName}
-                className='form-control'
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='email'>Email</label>
-              <input
-                type='email'
-                name='email'
-                value={email}
-                onChange={handleEmail}
-                className='form-control'
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='password'>Password</label>
-              <input
-                type='password'
-                name='password'
-                value={password}
-                onChange={handlePassword}
-                className='form-control'
-              />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='confirmPassword'>Confirm Password</label>
-              <input
-                type='password'
-                name='confirmPassword'
-                value={confirmPassword}
-                onChange={handleConfirmPassword}
-                className='form-control'
-              />
-            </div>
-            <button type='submit' className='btn btn-primary float-right'>
-              Submit
-            </button>
-          </form>
+          <Form inputs={formData[formIdx].inputs} onSubmit={handleSubmit} />
         </div>
       </div>
     </div>

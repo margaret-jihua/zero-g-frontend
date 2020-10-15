@@ -52,7 +52,7 @@ const Navbar = (props) => {
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'>
                 <NavLink className='nav-link' to='/signup'>
-                  Creat Account
+                  Create Account
                 </NavLink>
               </li>
               <li className='nav-item'>
