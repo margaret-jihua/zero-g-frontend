@@ -63,12 +63,12 @@ const MyWorkouts = ({ user, setCurrentUser }) => {
         </>
       ) : (
         <>
-          {user.workouts &&
-            user.workouts.map((workout, idx) => {
+          {user.exercises &&
+            user.exercises.map((workout, idx) => {
               return (
                 <div class='card w-75' key={idx}>
                   <div class='card-body'>
-                    <h5 class='card-title'>{workout.title}</h5>
+                    <h5 class='card-title'>{workout.name}</h5>
                     <p class='card-text'>{workout.description}</p>
                     <Link to={`workout/${workout._id}`} class='btn btn-primary'>
                       Workout!
