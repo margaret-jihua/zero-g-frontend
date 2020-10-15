@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Workout from './components/Workout';
 import MyWorkouts from './containers/MyWorkouts';
 import './App.scss';
 
@@ -85,6 +86,12 @@ function App() {
           <PrivateRoute
             path='/workouts'
             component={MyWorkouts}
+            user={currentUser}
+            setCurrentUser={setCurrentUser}
+          />
+          <PrivateRoute
+            path='/workout/:id'
+            component={Workout}
             user={currentUser}
             setCurrentUser={setCurrentUser}
           />
