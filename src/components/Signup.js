@@ -97,9 +97,9 @@ const Signup = () => {
     {
       inputs: [
         {
-          name: 'Mass',
-          value: mass,
-          onChange: handleMass,
+          name: 'Age',
+          value: age,
+          onChange: handleAge,
           type: 'range',
         },
         {
@@ -108,10 +108,14 @@ const Signup = () => {
           onChange: handleHeight,
           type: 'range',
         },
+      ],
+    },
+    {
+      inputs: [
         {
-          name: 'Age',
-          value: age,
-          onChange: handleAge,
+          name: 'Mass',
+          value: mass,
+          onChange: handleMass,
           type: 'range',
         },
         {
@@ -127,7 +131,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formIdx >= 1) {
+    if (formIdx >= 2) {
       if (password === confirmPassword) {
         const newUser = {
           name,
