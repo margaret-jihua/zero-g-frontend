@@ -86,6 +86,7 @@ function App() {
             path='/workouts'
             component={MyWorkouts}
             user={currentUser}
+            setCurrentUser={setCurrentUser}
           />
           <Route exact path='/' component={Welcome} />
         </Switch>
