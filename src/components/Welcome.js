@@ -1,5 +1,4 @@
 import React from 'react';
-import Timer from './Timer';
 
 const Welcome = () => {
   return (
@@ -9,7 +8,6 @@ const Welcome = () => {
         To avoid muscle atrophy in space travel, you must exercise for{' '}
         <strong>2 hours</strong> a day.
       </p>
-      <Timer />
     </div>
   );
 };
