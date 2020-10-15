@@ -6,6 +6,7 @@ const Timer = (props) => {
   let defaultTime = props.defaultTime || 10;
   const [seconds, setSeconds] = useState(defaultTime);
   const [isActive, setIsActive] = useState(false);
+  const [done, setDone] = useState(false);
 
   function toggle() {
     setIsActive(!isActive);
@@ -21,6 +22,7 @@ const Timer = (props) => {
     } else if (seconds === 0) {
       clearInterval(interval);
       setIsActive(false);
+      setDone(true);
     }
     return () => clearInterval(interval);
   }, [isActive, seconds]);
@@ -34,14 +36,18 @@ const Timer = (props) => {
         text={seconds > 0 ? `${seconds}s` : `Done!`}
       />
       <div className='row'>
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? 'active' : 'inactive'
-          }`}
-          onClick={toggle}
-        >
-          {isActive ? 'Pause' : 'Start'}
-        </button>
+        {done ? (
+          <button onClick={() => console.log('Redirect')}>Next Workout!</button>
+        ) : (
+          <button
+            className={`button button-primary button-primary-${
+              isActive ? 'active' : 'inactive'
+            }`}
+            onClick={toggle}
+          >
+            {isActive ? 'Pause' : 'Start'}
+          </button>
+        )}
       </div>
     </div>
   );
