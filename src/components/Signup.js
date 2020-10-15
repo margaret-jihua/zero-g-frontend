@@ -22,10 +22,10 @@ const Signup = () => {
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
   let [confirmPassword, setConfirmPassword] = useState('');
-  let [mass, setMass] = useState('');
-  let [height, setHeight] = useState('');
-  let [age, setAge] = useState('');
-  let [boneDensity, setBoneDensity] = useState('');
+  let [mass, setMass] = useState(30);
+  let [height, setHeight] = useState(60);
+  let [age, setAge] = useState(20);
+  let [boneDensity, setBoneDensity] = useState(100);
 
   let [redirect, setRedirct] = useState('');
   let [formIdx, setFormIdx] = useState(0);

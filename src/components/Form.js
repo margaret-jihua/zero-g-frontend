@@ -14,7 +14,14 @@ const Form = ({ inputs, onSubmit }) => {
       {inputs.map((input, key) => {
         return (
           <div className='form-group'>
-            <label htmlFor={input.name}>{input.name}</label>
+            <label htmlFor={input.name}>{input.name}: </label>
+            {input.type === 'range' ? (
+              <label className='d-flex justify-content-end'>
+                {input.value}
+              </label>
+            ) : (
+              ''
+            )}
             <input
               type={input.type}
               value={input.value}
