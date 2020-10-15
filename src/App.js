@@ -33,9 +33,13 @@ function App() {
 
   useEffect(() => {
     let token;
+<<<<<<< HEAD
     console.log(localStorage.getItem('jwtToken'));
     if (!localStorage.getItem('jwtToken')) {
       console.log('false');
+=======
+    if (!localStorage.getItem('jwtToken')) {
+>>>>>>> ed4cd1974ad8570eedede082c9b3b33130067e00
       setIsAuthenticated(false);
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
