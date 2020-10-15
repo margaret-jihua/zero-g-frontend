@@ -13,6 +13,10 @@ const Timer = (props) => {
   }
 
   useEffect(() => {
+    setSeconds(props.defaultTime);
+  }, [props]);
+
+  useEffect(() => {
     let interval = null;
     // if (seconds === 0) toggle();
     if (isActive && seconds !== 0) {

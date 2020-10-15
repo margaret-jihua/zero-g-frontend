@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
 import Form from './Form';
 
 const Workout = (props) => {
+  //   const workoutID = window.location.pathname.split('/')[2];
+  //   const workout =
+  //     props.user.exercises &&
+  //     props.user.exercises.find((el) => el._id === workoutID);
+
   const [update, setUpdate] = useState(false);
-  const [workoutName, setWorkoutName] = useState(
-    props.workoutName || 'Workout Name'
-  );
-  const [workoutTime, setWorkoutTime] = useState(props.workoutTime || 10);
+  const [workoutName, setWorkoutName] = useState('Workout Name');
+  const [workoutTime, setWorkoutTime] = useState(10);
 
   const handleWorkoutName = (e) => {
     setWorkoutName(e.target.value);
@@ -38,6 +41,17 @@ const Workout = (props) => {
       },
     ],
   };
+
+  useEffect(() => {
+    if (props.user) {
+      const workoutID = window.location.pathname.split('/')[2];
+      const workout = props.user.exercises.find((el) => el._id === workoutID);
+      //   console.log(workout);
+      setWorkoutName(workout.name);
+      setWorkoutTime(parseInt(workout.time));
+    }
+  }, [props]);
+
   return (
     <div>
       <h1>{workoutName}</h1>

@@ -29,9 +29,19 @@ const MyWorkouts = ({ user, setCurrentUser }) => {
       })
       .then((response) => {
         console.log(response);
-        console.log(user);
-        toggleAdd(false);
-        setCurrentUser({ ...user, ...response.data });
+        axios
+          .get(`${REACT_APP_SERVER_URL}/api/users/${user.id}`)
+          .then((res) => {
+            console.log(res);
+            setCurrentUser(res.data);
+            toggleAdd(false);
+          })
+          .catch((err) => {
+            console.log('error retrieving user', err);
+          });
+        // console.log(user);
+        // toggleAdd(false);
+        // setCurrentUser({ ...user, ...response.data });
       })
       .catch((error) => {
         console.log(error);
