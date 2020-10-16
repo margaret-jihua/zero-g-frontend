@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import { Forward } from '../assets';
+
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Login = (props) => {
@@ -45,7 +47,7 @@ const Login = (props) => {
             value={email}
             onChange={handleEmail}
             className='form-control'
-            placeholder='email'
+            placeholder='Email'
             required
           />
         </div>
@@ -56,15 +58,17 @@ const Login = (props) => {
             value={password}
             onChange={handlePassword}
             className='form-control'
-            placeholder='password'
+            placeholder='Password'
             required
           />
         </div>
         <button type='submit' className='btn'>
-          Submit
+          <span>Submit</span>
+          <Forward />
         </button>
-        <p>Don't have account yet?</p><a href="/signup">Create an account</a>
-      </form>    
+        <p>Don't have account yet?</p>
+        <Link to='/signup'>Create an account</Link>
+      </form>
     </div>
   );
 };

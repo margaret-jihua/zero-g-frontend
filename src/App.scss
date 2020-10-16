@@ -1,4 +1,4 @@
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,input,p {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -116,8 +116,10 @@ body {
     }
     input {
         border-radius: 10px;
+        border: none;
         width: 85%;
         margin: 40px auto;
+        font-size: 16px;
     }
     .btn {
         width: 160px;
