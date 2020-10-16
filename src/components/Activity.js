@@ -7,7 +7,7 @@ import {
   CircularProgressbarWithChildren,
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { Images } from '../assets';
+import { Images, ActivityButton } from '../assets';
 
 const Activity = () => {
   const [val1] = useState(Math.floor(Math.random() * 100));
@@ -19,7 +19,7 @@ const Activity = () => {
       css={css`
         background-image: url('${Images.ActivityBackground}');
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -47,66 +47,106 @@ const Activity = () => {
           justify-content: space-between;
         `}
       >
-        <div style={{ width: '200px', padding: '15px' }}>
-          <CircularProgressbarWithChildren
-            value={val1}
-            styles={buildStyles({
-              //   textColor: 'red',
-              pathColor: '#FD58FF',
-              //   trailColor: 'gold',
-            })}
-            width={'200px'}
-          >
-            <h3
-              css={css`
-                color: white;
-              `}
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+          `}
+        >
+          <div style={{ width: '200px', padding: '15px 25px' }}>
+            <CircularProgressbarWithChildren
+              value={val1}
+              styles={buildStyles({
+                //   textColor: 'red',
+                pathColor: '#FD58FF',
+                //   trailColor: 'gold',
+              })}
+              width={'200px'}
             >
-              {' '}
-              {val1}% <br /> Run
-            </h3>
-          </CircularProgressbarWithChildren>
+              <h3
+                css={css`
+                  color: white;
+                `}
+              >
+                {' '}
+                {val1}% <br /> Run
+              </h3>
+            </CircularProgressbarWithChildren>
+          </div>
+          <ActivityButton />
         </div>
-        <div style={{ width: '200px', padding: '15px' }}>
-          <CircularProgressbarWithChildren
-            styles={buildStyles({
-              //   textColor: 'red',
-              pathColor: '#3887A1',
-              //   trailColor: 'gold',
-            })}
-            value={val2}
-            width={'200px'}
-          >
-            <h3
-              css={css`
-                color: white;
-              `}
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+          `}
+        >
+          <div style={{ width: '200px', padding: '15px 25px' }}>
+            <CircularProgressbarWithChildren
+              styles={buildStyles({
+                //   textColor: 'red',
+                pathColor: '#3887A1',
+                //   trailColor: 'gold',
+              })}
+              value={val2}
+              width={'200px'}
             >
-              {' '}
-              {val2}% <br /> Row
-            </h3>
-          </CircularProgressbarWithChildren>
+              <h3
+                css={css`
+                  color: white;
+                `}
+              >
+                {' '}
+                {val2}% <br /> Row
+              </h3>
+            </CircularProgressbarWithChildren>
+          </div>
+          <ActivityButton />
         </div>
-        <div style={{ width: '200px', padding: '15px' }}>
-          <CircularProgressbarWithChildren
-            styles={buildStyles({
-              //   textColor: 'red',
-              pathColor: '#00BA88',
-              //   trailColor: 'gold',
-            })}
-            value={val3}
-            width={'200px'}
-          >
-            <h3
-              css={css`
-                color: white;
-              `}
+        <div
+          css={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+          `}
+        >
+          <div style={{ width: '200px', padding: '15px 25px' }}>
+            <CircularProgressbarWithChildren
+              styles={buildStyles({
+                //   textColor: 'red',
+                pathColor: '#00BA88',
+                //   trailColor: 'gold',
+              })}
+              value={val3}
+              width={'200px'}
             >
-              {' '}
-              {val3}% <br /> Bike
-            </h3>
-          </CircularProgressbarWithChildren>
+              <h3
+                css={css`
+                  color: white;
+                `}
+              >
+                {' '}
+                {val3}% <br /> Bike
+              </h3>
+            </CircularProgressbarWithChildren>
+          </div>
+          <ActivityButton />
         </div>
+        <p
+          css={css`
+            color: white;
+            padding: 25px;
+            text-align: center;
+          `}
+        >
+          Astronauts on the FalconX station exercise 6 out of 7 days a week for
+          2.5 hours each day.
+        </p>
       </section>
     </div>
   );

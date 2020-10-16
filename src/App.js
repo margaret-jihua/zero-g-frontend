@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import Welcome from './components/Welcome';
 import About from './components/About';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -100,7 +100,7 @@ function App() {
         <Route exact path='/' component={Welcome} />
       </Switch>
       {/* </div> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
