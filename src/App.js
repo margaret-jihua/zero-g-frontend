@@ -79,7 +79,7 @@ function App() {
           )}
         />
         <Route path='/about' component={About} />
-        <PrivateRoute path='/profile' component={Profile} user={currentUser} />
+        <PrivateRoute path='/profile' component={Profile} user={currentUser} handleLogout={handleLogout}/>
         <PrivateRoute
           path='/activity'
           component={Activity}
