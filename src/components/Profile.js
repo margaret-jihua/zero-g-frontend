@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import WorkoutPreview from './WorkoutPreview';
+// import WorkoutPreview from './WorkoutPreview';
 
-import plannet from '../assets/profile/Home/Group 245.svg'
 import workout from '../assets/profile/Home/Group 264.svg'
 import menu from '../assets/profile/Group 253.png'
 import moon from '../assets/moon.png';
@@ -13,7 +12,12 @@ import saturn from '../assets/saturn.png';
 const Profile = (props) => {
   let [showMenu, setShowMenu] = useState('none')
   let [destinationPlanet, setDestinationPlanet] = useState()
-  
+  console.log(props.user.destination);
+  let userPlanet = props.user.destination.name
+  // let tripCompleted
+  // let [userPlanet, setUserPlanet] = useState()
+  let [tripCompleted, setTripCompleted] = useState()
+
   const handleMenu = () => {
     if (showMenu === 'none' ) {
       setShowMenu('block')
@@ -22,20 +26,22 @@ const Profile = (props) => {
     }
   }
 
-  let userPlanet = props.user.destination.name
+  useEffect (()=>{
+    if(props.user) {
+      // setUserPlanet = props.user.destination.name
+      setTripCompleted = Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100)
 
-  if (userPlanet === 'moon') {
-    setDestinationPlanet(moon)
-  } else if ( userPlanet === 'earth') {
-    setDestinationPlanet(earth)
-  } else if ( userPlanet === 'mars') {
-    setDestinationPlanet(mars)
-  } else if ( userPlanet === 'saturn') {
-    setDestinationPlanet(saturn)
-  }
-
-  let tripCompleted = Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100)
-
+      if (userPlanet === 'moon') {
+        setDestinationPlanet(moon)
+      } else if ( userPlanet === 'earth') {
+        setDestinationPlanet(earth)
+      } else if ( userPlanet === 'mars') {
+        setDestinationPlanet(mars)
+      } else if ( userPlanet === 'saturn') {
+        setDestinationPlanet(saturn)
+      }
+    }
+  },[])  
 
   const userData = props.user ? (
     <div className="profileDiv">
@@ -55,7 +61,7 @@ const Profile = (props) => {
       <div style={{position: 'relative'}}>
         <p> {tripCompleted}% Complete</p>
         <p>
-          You're on <strong>DAY {props.user.destination.daysInTrip}</strong> on your trip to <span className="plannetName">Saturn</span>!
+          You're on <strong>DAY {props.user.destination.daysInTrip}</strong> on your trip to <span className="plannetName">{props.user.destination.name}</span>!
         </p>
 
         <h3>Log your progress below</h3>
