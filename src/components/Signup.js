@@ -21,7 +21,10 @@ const Signup = () => {
   let [height, setHeight] = useState(60);
   let [age, setAge] = useState(20);
   let [boneDensity, setBoneDensity] = useState(100);
-  let [tripStarted, setTripStarted] = useState()
+  let [tripStarted, setTripStarted] = useState();
+  let [days, setDays] = useState('')
+  let [planet, setPlanet] = useState('');
+  let [scale, setScale] = useState()
 
   let [redirect, setRedirct] = useState('');
   let [formIdx, setFormIdx] = useState(0);
@@ -63,6 +66,16 @@ const Signup = () => {
 
   const handleTripStarted = (e) => {
     setTripStarted(e.target.value)
+  }
+
+  const handleDestination = (planet, day) => {
+    setPlanet(planet);
+    setDays(day)
+    if (!scale) {
+      setScale('scale(1.7)')
+    } else {
+      setScale('')
+    }
   }
 
   const formData = [
@@ -153,7 +166,9 @@ const Signup = () => {
           height,
           age,
           boneDensity,
-          tripStarted
+          tripStarted,
+          days,
+          planet,
         };
 
         axios
@@ -181,45 +196,37 @@ const Signup = () => {
     <div className='container sigup'>
       <h2 className='py-2'>{heading}</h2>
       {formIdx === 3 ? (
-        <div className='text-left'>
+        <div>
           <h5>Where are you going?</h5>
-          <div id="carouselExampleCaptions" class="carousel slide text-center" data-ride="carousel">
-            {/* <ol class="carousel-indicators">
-              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol> */}
+          <p>choose your planet:</p>
+          <div id="carouselExampleCaptions" class="carousel" data-interval="false">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <h6>Moon: 3 days</h6>
-                <img src={moon} alt="moon"/>
+              <div class="carousel-item active" onClick={()=>handleDestination('moon','3')}>
+                <h6>Moon: 3 days</h6> 
+                <img src={moon} alt="moon" style={{transform: `${scale}`, margin: '30px auto'}}/>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" onClick={()=>handleDestination('earth','4')}>
                 <h6>Earth: 4 days</h6>
-                <img src={earth} alt="earth"/>
+                <img src={earth} alt="earth" style={{transform: `${scale}`, margin: '30px auto'}}/>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" onClick={()=>handleDestination('mars','410')}>
                 <h6>Mars: 7 months</h6>
-                <img src={mars} alt="mars"/>
+                <img src={mars} alt="mars" style={{transform: `${scale}`, margin: '30px auto'}}/>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item" onClick={()=>handleDestination('saturn','1095')}>
                 <h6>Saturn: 3 years</h6>
-                <img src={saturn} alt="saturn"/>
+                <img src={saturn} alt="saturn" style={{transform: `${scale}`, margin: '30px auto'}}/>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev" onClick={()=>setScale('')}>
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next" onClick={()=>setScale('')}>
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
-          {/* <img src={moon} alt="moon"/>
-          <img src={earth} alt="earth"/>
-          <img src={mars} alt="mars"/>
-          <img src={saturn} alt="saturn"/> */}
           <h5>Which date you started this journey?</h5>
         </div>
       ) : (
