@@ -37,7 +37,7 @@ const Profile = (props) => {
       <div style={{position: 'relative'}}>
         <p> 57% Complete</p>
         <p>
-          You're on <strong>DAY 1</strong> on your trip to <span className="plannetName">Saturn</span>!
+          You're on <strong>DAY {props.user.destination.daysInTrip}</strong> on your trip to <span className="plannetName">Saturn</span>!
         </p>
 
         <h3>Log your progress below</h3>
