@@ -53,7 +53,7 @@ body {
         color: black;
     }
 
-    .btn:hover {
+    .btn:active {
         background-color: white;
         color: yellowgreen;
     }
@@ -72,7 +72,25 @@ body {
     color: white;
 }
 
-.sigup{
+.sign-in {
+    .py-2{
+        margin: 85px auto 60px;
+    }
+    input {
+        border-radius: 10px;
+        width: 85%;
+        margin: 40px auto;
+    }
+    background-image: url('../src/assets/welcome-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    // width: 100%;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+.sigup {
     background-image: url('../src/assets/signup-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
