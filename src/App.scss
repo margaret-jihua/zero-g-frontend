@@ -258,7 +258,7 @@ body {
         margin: 30px auto;
         background-color: white;
         border: 2px solid rgba(20, 20, 43, 0.13);
-        color: black;
+        color: #00BA88;
         border-radius: 15px;
         &:hover,&:focus,&:active{
             color: #00BA88;
@@ -270,6 +270,10 @@ body {
     }
     h2 {
         margin-bottom: 50px;
+    }
+    h6 {
+        color: rgb(194, 137, 247);
+        text-shadow: rgba(255, 255, 255, 0.801) 0.2px 0.2px ;
     }
     p {
         margin: 40px auto 5px;

@@ -5,7 +5,7 @@ import setAuthToken from '../utils/setAuthToken';
 import { Redirect, Link } from 'react-router-dom';
 import { Forward } from '../assets';
 
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL || "https://z-gero.herokuapp.com";
 
 const Login = (props) => {
   let [email, setEmail] = useState('');
