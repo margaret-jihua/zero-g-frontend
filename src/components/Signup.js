@@ -7,20 +7,10 @@ import earth from '../assets/earth.png';
 import mars from '../assets/mars.png';
 import saturn from '../assets/saturn.png';
 
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL || "https://z-gero.herokuapp.com";
+console.log(REACT_APP_SERVER_URL);
 
 const Signup = () => {
-  /**
-   * state = {
-   *   name: '',
-   *  password: ''
-   * }
-   */
-
-  //  this.setState({
-  //          name: e.target.value
-  // })
-  // setState(e.target.value)
   //   Form Fields
   let [heading, setHeading] = useState('Create an Account');
   let [name, setName] = useState('');
@@ -62,9 +52,6 @@ const Signup = () => {
   const handleBoneDensity = (e) => {
     setBoneDensity(e.target.value);
   };
-  //   const fieldHandler = (e, setState) => {
-  //       setState(e.target.value)
-  //   }
 
   const handleMass = (e) => {
     setMass(e.target.value);
@@ -204,25 +191,20 @@ const Signup = () => {
             </ol> */}
             <div class="carousel-inner">
               <div class="carousel-item active">
+                <h6>Moon: 3 days</h6>
                 <img src={moon} alt="moon"/>
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Moon</h5>
-                  <p>3 days</p>
-                </div>
               </div>
               <div class="carousel-item">
+                <h6>Earth: 4 days</h6>
                 <img src={earth} alt="earth"/>
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Earth</h5>
-                  <p>4 days</p>
-                </div>
               </div>
               <div class="carousel-item">
+                <h6>Mars: 7 months</h6>
                 <img src={mars} alt="mars"/>
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Mars</h5>
-                  <p>7 months</p>
-                </div>
+              </div>
+              <div class="carousel-item">
+                <h6>Saturn: 3 years</h6>
+                <img src={saturn} alt="saturn"/>
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
