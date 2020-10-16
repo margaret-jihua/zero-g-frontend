@@ -196,10 +196,48 @@ const Signup = () => {
       {formIdx === 3 ? (
         <div className='text-left'>
           <h5>Where are you going?</h5>
-          <img src={moon}/>
-          <img src={earth}/>
-          <img src={mars}/>
-          <img src={saturn}/>
+          <div id="carouselExampleCaptions" class="carousel slide text-center" data-ride="carousel">
+            {/* <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol> */}
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src={moon} alt="moon"/>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Moon</h5>
+                  <p>3 days</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src={earth} alt="earth"/>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Earth</h5>
+                  <p>4 days</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src={mars} alt="mars"/>
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Mars</h5>
+                  <p>7 months</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          {/* <img src={moon} alt="moon"/>
+          <img src={earth} alt="earth"/>
+          <img src={mars} alt="mars"/>
+          <img src={saturn} alt="saturn"/> */}
           <h5>Which date you started this journey?</h5>
         </div>
       ) : (
