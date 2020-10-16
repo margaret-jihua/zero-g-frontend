@@ -51,7 +51,7 @@ const Profile = (props) => {
               <div>
                   <img src={workout}/>
               </div>
-              <button className="btn1" >Start Workout</button>
+              <a className="btn1" href="workout/run"><p style={{marginTop: '3px'}}>Start Workout</p></a>
               <p>
                  60% Completed
               </p>
