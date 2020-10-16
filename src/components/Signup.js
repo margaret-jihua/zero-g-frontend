@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Form from './Form';
+import moon from '../assets/moon.png'
+import earth from '../assets/earth.png'
+import mars from '../assets/mars.png'
+import saturn from '../assets/saturn.png'
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -18,6 +22,7 @@ const Signup = () => {
   // })
   // setState(e.target.value)
   //   Form Fields
+  let [heading, setHeading] = useState('Create an Account')
   let [name, setName] = useState('');
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
@@ -26,6 +31,7 @@ const Signup = () => {
   let [height, setHeight] = useState(60);
   let [age, setAge] = useState(20);
   let [boneDensity, setBoneDensity] = useState(100);
+  let [day, setDay] = useState(10)
 
   let [redirect, setRedirct] = useState('');
   let [formIdx, setFormIdx] = useState(0);
@@ -64,6 +70,10 @@ const Signup = () => {
   const handleHeight = (e) => {
     setHeight(e.target.value);
   };
+
+  const handleDay = (e) => {
+    setDay(e.target.value)
+  }
 
   const formData = [
     {
@@ -126,12 +136,22 @@ const Signup = () => {
         },
       ],
     },
+    {
+      inputs: [
+        {
+          name: 'Day',
+          value: day,
+          onChange: handleDay,
+          type: 'range',
+        }
+      ]
+    },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formIdx >= 2) {
+    if (formIdx >= 3) {
       if (password === confirmPassword) {
         const newUser = {
           name,
@@ -142,6 +162,7 @@ const Signup = () => {
           height,
           age,
           boneDensity,
+          day
         };
 
         axios
@@ -154,8 +175,13 @@ const Signup = () => {
             console.log(error);
           });
       }
-    } else {
+    } else if (formIdx >= 2){
       setFormIdx(formIdx + 1);
+      setHeading('Your trip')
+    }
+    else{
+      setFormIdx(formIdx + 1);
+      setHeading('Tell us more')
     }
   };
 
@@ -163,8 +189,20 @@ const Signup = () => {
 
   return (
     <div className='container sigup'>
-      <h2 className='py-2'>Signup</h2>
+      <h2 className='py-2'>{heading}</h2>
+      {formIdx === 3 ? (
+        <div className="text-left">
+          <h5>Where are you going?</h5>
+          <img src={moon}/>
+          <img src={earth}/>
+          <img src={mars}/>
+          <img src={saturn}/>
+          <h5>Which day are you on your journey?</h5>
+        </div>
+      ):('')}
       <Form inputs={formData[formIdx].inputs} onSubmit={handleSubmit} />
+      <p>Already have an account?</p>
+      <a href="/login">Sign In</a>
     </div>
   );
 };
