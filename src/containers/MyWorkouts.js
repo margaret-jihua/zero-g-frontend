@@ -25,7 +25,11 @@ const WorkoutButton = styled(Link)`
   justify-content: space-around;
   color: white;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
+    color: white;
+    text-decoration: none;
     background: linear-gradient(
       105.51deg,
       #044cfa 62.47%,
