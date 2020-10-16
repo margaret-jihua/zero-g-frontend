@@ -10,6 +10,33 @@ h1,h2,h3,h4,h5,h6,p {
     line-height: 60px; /* Vertically center the  text there */
 }
 
+body {
+    color: white;
+    text-align: center;
+    background-image: url('./imgs/Home/image\ 11.png');
+}
+
+.workoutStatus {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 90vw;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 35px;
+
+}
+
+.btn {
+    color: white;
+    width: 35%;
+    background: #5283F4;
+    border-radius: 40px;
+}
+
 .welcome {
     h5 {
         color: rgb(123, 20, 170);
@@ -21,3 +48,4 @@ h1,h2,h3,h4,h5,h6,p {
         margin: 30px auto;
     }
 }
+
