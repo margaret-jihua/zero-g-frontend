@@ -12,10 +12,7 @@ import saturn from '../assets/saturn.png';
 const Profile = (props) => {
   let [showMenu, setShowMenu] = useState('none')
   let [destinationPlanet, setDestinationPlanet] = useState()
-  console.log(props.user.destination);
-  let userPlanet = props.user.destination.name
-  // let tripCompleted
-  // let [userPlanet, setUserPlanet] = useState()
+  let userPlanet;
   let [tripCompleted, setTripCompleted] = useState()
 
   const handleMenu = () => {
@@ -28,8 +25,8 @@ const Profile = (props) => {
 
   useEffect (()=>{
     if(props.user) {
-      // setUserPlanet = props.user.destination.name
-      setTripCompleted = Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100)
+      userPlanet = props.user.destination.name
+      setTripCompleted(Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100))
 
       if (userPlanet === 'moon') {
         setDestinationPlanet(moon)
@@ -40,7 +37,9 @@ const Profile = (props) => {
       } else if ( userPlanet === 'saturn') {
         setDestinationPlanet(saturn)
       }
+      console.log(destinationPlanet)
     }
+    
   },[])  
 
   const userData = props.user ? (
@@ -56,7 +55,7 @@ const Profile = (props) => {
       </div>
       <h1>Hello {props.user.name.split(" ")[0]}</h1>
       <div >
-        <img src={destinationPlanet}/>
+        <img src={destinationPlanet} style={{transform: 'scale(2.5)', marginBottom: '30px', marginTop: '30px'}}/>
       </div>
       <div style={{position: 'relative'}}>
         <p> {tripCompleted}% Complete</p>
