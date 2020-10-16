@@ -39,13 +39,45 @@ body {
 
 .welcome {
     h5 {
-        color: rgb(123, 20, 170);
+        color: rgb(142, 82, 170);
         margin: 50px auto;
     }
+
     .btn {
         width: 160px;
         display: block;
         margin: 30px auto;
+        background-color: white;
+        color: black;
     }
+
+    .btn:hover {
+        background-color: white;
+        color: yellowgreen;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    background-image: url('../src/assets/welcome-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    color: white;
 }
+
+.sigup{
+    background-image: url('../src/assets/signup-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
 

@@ -162,13 +162,9 @@ const Signup = () => {
   if (redirect) return <Redirect to='/login' />;
 
   return (
-    <div className='row mt-4'>
-      <div className='col-md-7 offset-md-3'>
-        <div className='card card-body'>
-          <h2 className='py-2'>Signup</h2>
-          <Form inputs={formData[formIdx].inputs} onSubmit={handleSubmit} />
-        </div>
-      </div>
+    <div className='container sigup'>
+      <h2 className='py-2'>Signup</h2>
+      <Form inputs={formData[formIdx].inputs} onSubmit={handleSubmit} />
     </div>
   );
 };
