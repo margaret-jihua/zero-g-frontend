@@ -26,7 +26,10 @@ const Profile = (props) => {
   useEffect (()=>{
     if(props.user) {
       userPlanet = props.user.destination.name
-      setTripCompleted(Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100))
+      let temp =  props.user.destination.daysInTrip / props.user.destination.totalTripDays
+      console.log(temp);
+      let temp2 = Math.floor(temp * 100)
+      setTripCompleted(temp2)
 
       if (userPlanet === 'moon') {
         setDestinationPlanet(moon)
@@ -37,7 +40,6 @@ const Profile = (props) => {
       } else if ( userPlanet === 'saturn') {
         setDestinationPlanet(saturn)
       }
-      console.log(destinationPlanet)
     }
     
   },[])  
