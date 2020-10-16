@@ -14,12 +14,17 @@ const Form = ({ inputs, onSubmit }) => {
       {inputs.map((input, key) => {
         return (
           <div className='form-group'>
-            <label htmlFor={input.name}>{input.name}: </label>
             {input.type === 'range' ? (
-              <label className='d-flex justify-content-end'>
-                {input.value}
-              </label>
-            ) : (
+              input.name==='Day' ? (
+                <div className="d-flex justify-content-center">
+                  <label>{input.name} {input.value}</label>
+                </div>
+              ):(
+              <div className="d-flex justify-content-between">
+                <label htmlFor={input.name}>{input.name}: </label>
+                <label>{input.value}</label>
+              </div>
+            )) : (
               ''
             )}
             <input
@@ -27,12 +32,13 @@ const Form = ({ inputs, onSubmit }) => {
               value={input.value}
               onChange={input.onChange}
               className='form-control'
+              placeholder={input.name}
               // required
             />
           </div>
         );
       })}
-      <button type='submit' className='btn btn-primary float-right'>
+      <button type='submit' className='btn'>
         Submit
       </button>
     </form>

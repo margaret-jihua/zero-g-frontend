@@ -1,7 +1,31 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
 import React from 'react';
 
 export const WorkoutIcon = () => (
   <svg
+    css={css`
+      position: absolute;
+      width: 35px;
+      left: 300px;
+      right: 0;
+      top: 35px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media only screen and (max-width: 380px) {
+        left: 240px;
+      }
+      @media only screen and (max-width: 375px) {
+        left: 265px;
+        top: 35px;
+      }
+      @media only screen and (max-width: 320px) {
+        left: 230px;
+        top: 35px;
+      }
+    `}
     width='40'
     height='25'
     viewBox='0 0 40 25'

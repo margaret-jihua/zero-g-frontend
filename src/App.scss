@@ -52,25 +52,22 @@ body {
         color: rgb(142, 82, 170);
         margin: 50px auto;
     }
-
     .btn {
         width: 160px;
         display: block;
         margin: 30px auto;
         background-color: white;
         color: black;
+        border-radius: 15px;
     }
-
-    .btn:hover {
+    .btn:active {
         background-color: white;
         color: yellowgreen;
     }
-
     a {
         color: white;
         text-decoration: none;
     }
-
     background-image: url('../src/assets/welcome-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -80,13 +77,85 @@ body {
     color: white;
 }
 
-.sigup{
+.sign-in {
+    .py-2{
+        margin: 85px auto 60px;
+    }
+    input {
+        border-radius: 10px;
+        width: 85%;
+        margin: 40px auto;
+    }
+    .btn {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 40%;
+    }
+    p {
+        margin: 50px auto 5px;
+    }
+    a {
+        color: yellowgreen;
+    }
+    background-image: url('../src/assets/welcome-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    // width: 100%;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+.sigup {
+    // input[type=range]{
+    //     -webkit-appearance: none;
+    //     margin: 10px 0;
+    //     width: 100%;
+    // }
+    // input[type=range]::-webkit-range-thumb {
+    //     box-shadow: 1px 1px 7px #EDD8E7;
+    //     border: 7px solid #c994e0b6;
+    //     height: 36px;
+    //     width: 36px;
+    //     border-radius: 50px;
+    //     background: #b361f1;
+    //     cursor: pointer;
+    //   }
+    //   input[type=range]::-webkit-slider-runnable-track {
+    //     width: 100%;
+    //     height: 5px;
+    //     cursor: pointer;
+    //     animate: 0.2s;
+    //     box-shadow: 0px 0px 0px #000000;
+    //     background: #2497E3;
+    //     border-radius: 1px;
+    //     border: 0px solid #000000;
+    //   }
+    input {
+        margin: 0 auto 40px;
+        justify-items: center;
+        border-radius: 10px;
+    }
+    .btn {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 40%;
+    }
+    h2 {
+        margin-bottom: 50px;
+    }
+    p {
+        margin: 40px auto 5px;
+    }
+    a {
+        color: yellowgreen;
+    }
     background-image: url('../src/assets/signup-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
-    padding: 20px;
+    padding: 40px;
     color: white;
 }
 

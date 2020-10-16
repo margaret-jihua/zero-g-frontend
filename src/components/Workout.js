@@ -1,11 +1,9 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/core';
-import styled from '@emotion/styled';
 import { useState, useEffect } from 'react';
 import { Images } from '../assets';
 import Timer from './Timer';
-import Form from './Form';
 
 const Workout = (props) => {
   //   const workoutID = window.location.pathname.split('/')[2];

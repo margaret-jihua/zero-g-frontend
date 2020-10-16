@@ -1,7 +1,19 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
 import React from 'react';
 
 export const ProfileIcon = () => (
   <svg
+    css={css`
+      position: absolute;
+      width: 35px;
+      left: 0;
+      right: -4px;
+      top: 55px;
+      margin-left: auto;
+      margin-right: auto;
+    `}
     width='40'
     height='40'
     viewBox='0 0 40 40'
