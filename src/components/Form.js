@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Forward } from '../assets';
+import thumb from '../assets/slider-thumb.png';
 /**
  * input : {
  *  name,
@@ -13,18 +14,21 @@ const Form = ({ inputs, onSubmit }) => {
     <form onSubmit={onSubmit} method='POST'>
       {inputs.map((input, key) => {
         return (
-          <div className='form-group'>
+          <div className='form-group' key={key}>
             {input.type === 'range' ? (
-              input.name==='Day' ? (
-                <div className="d-flex justify-content-center">
-                  <label>{input.name} {input.value}</label>
+              input.name === 'Day' ? (
+                <div className='d-flex justify-content-center'>
+                  <label>
+                    {input.name} {input.value}
+                  </label>
                 </div>
-              ):(
-              <div className="d-flex justify-content-between">
-                <label htmlFor={input.name}>{input.name}: </label>
-                <label>{input.value}</label>
-              </div>
-            )) : (
+              ) : (
+                <div className='d-flex justify-content-between'>
+                  <label htmlFor={input.name}>{input.name}: </label>
+                  <label>{input.value}</label>
+                </div>
+              )
+            ) : (
               ''
             )}
             {
@@ -34,7 +38,7 @@ const Form = ({ inputs, onSubmit }) => {
               type={input.type}
               value={input.value}
               onChange={input.onChange}
-              className='form-control'
+              className={input.type === 'range' ? 'range' : 'form-control'}
               placeholder={input.name}
               max={input.max}
               // required
@@ -54,7 +58,8 @@ const Form = ({ inputs, onSubmit }) => {
         );
       })}
       <button type='submit' className='btn'>
-        Submit
+        <span>Submit</span>
+        <Forward />
       </button>
     </form>
   );
