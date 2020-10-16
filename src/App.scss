@@ -60,6 +60,7 @@ body {
         // color: linear-gradient(114.44deg, #7D83FF 0%, #FFA3FD 100%);
         background: -webkit-linear-gradient(114.44deg, #7D83FF 0%, #FFA3FD 100%);
         -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
         margin: 50px auto;
         line-height: 50px;
         font-size: 24px;
@@ -329,11 +330,13 @@ input[type=range]:focus::-ms-fill-upper {
     // z-index: 1; 
 }
 
-.plannetName {
-    //color: linear-gradient(#EB0000, #FFDB80)
-    background: -webkit-linear-gradient(#EB0000, #FFDB80);
-    -webkit-text-fill-color: transparent;
-}
+
+    .plannetName {
+        //color: linear-gradient(#EB0000, #FFDB80)
+        background: -webkit-linear-gradient(#EB0000, #FFDB80);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
 .menu {
     float: left;
