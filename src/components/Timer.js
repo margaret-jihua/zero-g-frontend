@@ -65,7 +65,10 @@ const Timer = (props) => {
           //   trailColor: 'gold',
         })}
         value={(1 - seconds / defaultTime) * 100}
-        text={seconds > 0 ? `${seconds}s` : `Done!`}
+        text={`${~~(seconds / 60)}:${
+          ~~seconds % 60 < 10 ? '0' + (~~seconds % 60) : ~~seconds % 60
+        }`}
+        // text={seconds > 0 ? `${seconds}s` : `Done!`}
       />
       <div className='row'>
         {done ? (

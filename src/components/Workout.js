@@ -108,7 +108,7 @@ const Workout = (props) => {
       >
         {workoutName}
       </h1>
-      <Timer defaultTime={60} />
+      <Timer defaultTime={3600} />
     </div>
   );
 };
