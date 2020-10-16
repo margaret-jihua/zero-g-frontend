@@ -13,12 +13,12 @@ h1,h2,h3,h4,h5,h6,p {
 body {
     color: white;
     text-align: center;
-    background-image: url('./imgs/Home/image\ 11.png');
+    background-image: url('./assets/workouts-bg.png');
 }
 
 .workoutStatus {
     color: black;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.644) ;
     border-radius: 10px;
     margin: 0 auto;
     width: 90vw;
@@ -27,10 +27,18 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 35px;
-
+    .btn1 {
+        color: #5283F4;
+        width: 100%;
+        background: white;
+        border: transparent;
+        border-radius: 40px;
+        margin-bottom: 5px;
+    }
 }
 
 .profileDiv {
+    margin-top: 30px;
     .btn {
         color: white;
         width: 35%;
@@ -82,4 +90,47 @@ body {
     color: white;
 }
 
+.pendingWorkout {
+    position: absolute; 
+    // z-index: 1; 
+}
 
+.plannetName {
+    //color: linear-gradient(#EB0000, #FFDB80)
+    background: -webkit-linear-gradient(#EB0000, #FFDB80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu {
+    float: left;
+    top: 10px;
+    margin-left: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-items {
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.menu-items a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-items a:hover {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+  
