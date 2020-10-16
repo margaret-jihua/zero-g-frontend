@@ -1,3 +1,7 @@
+h1,h2,h3,h4,h5,h6,p {
+    font-family: 'Poppins', sans-serif;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -32,3 +36,16 @@ body {
     background: #5283F4;
     border-radius: 40px;
 }
+
+.welcome {
+    h5 {
+        color: rgb(123, 20, 170);
+        margin: 50px auto;
+    }
+    .btn {
+        width: 160px;
+        display: block;
+        margin: 30px auto;
+    }
+}
+
