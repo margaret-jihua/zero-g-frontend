@@ -1,7 +1,31 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
 import React from 'react';
 export const ActivityIcon = () => (
   <svg
-    width='40'
+    css={css`
+      position: absolute;
+      width: 35px;
+      left: 0;
+      right: 290px;
+      top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media only screen and (max-width: 380px) {
+        right: 240px;
+      }
+      @media only screen and (max-width: 375px) {
+        right: 265px;
+        top: 35px;
+      }
+      @media only screen and (max-width: 320px) {
+        right: 230px;
+        top: 35px;
+      }
+    `}
+    width='40px'
     height='35'
     viewBox='0 0 40 35'
     fill='none'

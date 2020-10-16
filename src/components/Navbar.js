@@ -1,9 +1,36 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+// import styled from '@emotion/styled';
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { NavEllipse, ActivityIcon, ProfileIcon, WorkoutIcon } from '../assets';
 
 const Navbar = (props) => {
   return (
-    <>{props.isAuth ? <nav>Nav</nav> : ''}</>
+    <nav>
+      {props.isAuth ? (
+        <div>
+          <NavEllipse />
+          <Link to='/activity'>
+            <ActivityIcon />
+          </Link>
+          <Link to='/profile'>
+            <ProfileIcon />
+          </Link>
+          <Link to='/workouts'>
+            <WorkoutIcon />
+          </Link>
+        </div>
+      ) : (
+        // <nav
+        //   css={css`
+        //     background-image: url(${NavEllipse});
+        //   `}
+        // ></nav>
+        ''
+      )}
+    </nav>
     // <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
     //   <div className='container'>
     //     <Link to='/' className='navbar-brand'>
