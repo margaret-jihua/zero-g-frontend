@@ -31,10 +31,13 @@ const Signup = () => {
   let [height, setHeight] = useState(60);
   let [age, setAge] = useState(20);
   let [boneDensity, setBoneDensity] = useState(100);
-  let [day, setDay] = useState(10)
+  let [tripStarted, setTripStarted] = useState()
 
   let [redirect, setRedirct] = useState('');
   let [formIdx, setFormIdx] = useState(0);
+
+  var today = new Date().toISOString().split('T')[0];
+
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -71,8 +74,8 @@ const Signup = () => {
     setHeight(e.target.value);
   };
 
-  const handleDay = (e) => {
-    setDay(e.target.value)
+  const handleTripStarted = (e) => {
+    setTripStarted(e.target.value)
   }
 
   const formData = [
@@ -139,10 +142,11 @@ const Signup = () => {
     {
       inputs: [
         {
-          name: 'Day',
-          value: day,
-          onChange: handleDay,
-          type: 'range',
+          name: 'tripStartDate',
+          value: tripStarted,
+          onChange: handleTripStarted,
+          type: 'date',
+          max: today,
         }
       ]
     },
@@ -162,7 +166,7 @@ const Signup = () => {
           height,
           age,
           boneDensity,
-          day
+          tripStarted
         };
 
         axios
@@ -197,7 +201,7 @@ const Signup = () => {
           <img src={earth}/>
           <img src={mars}/>
           <img src={saturn}/>
-          <h5>Which day are you on your journey?</h5>
+          <h5>Which date you started this journey?</h5>
         </div>
       ):('')}
       <Form inputs={formData[formIdx].inputs} onSubmit={handleSubmit} />

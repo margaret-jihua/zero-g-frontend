@@ -27,14 +27,29 @@ const Form = ({ inputs, onSubmit }) => {
             )) : (
               ''
             )}
-            <input
+            {
+              input.max 
+              ? 
+              (<input
+              type={input.type}
+              value={input.value}
+              onChange={input.onChange}
+              className='form-control'
+              placeholder={input.name}
+              max={input.max}
+              // required
+              />)
+              :
+              (<input
               type={input.type}
               value={input.value}
               onChange={input.onChange}
               className='form-control'
               placeholder={input.name}
               // required
-            />
+              />)
+            }
+            
           </div>
         );
       })}
