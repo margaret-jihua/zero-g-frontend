@@ -2,15 +2,15 @@
 
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import { Images } from '../assets';
 // import Form from '../components/Form';
 
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+// const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-const WorkoutButton = styled.button`
+const WorkoutButton = styled(Link)`
   width: 305px;
   height: 135px;
   background: linear-gradient(
@@ -35,63 +35,63 @@ const WorkoutButton = styled.button`
 `;
 
 const MyWorkouts = ({ user, setCurrentUser }) => {
-  const [add, toggleAdd] = useState(false);
-  const [workoutName, setWorkoutName] = useState('Workout Name');
-  const [workoutTime, setWorkoutTime] = useState(60);
+  // const [add, toggleAdd] = useState(false);
+  // const [workoutName, setWorkoutName] = useState('Workout Name');
+  // const [workoutTime, setWorkoutTime] = useState(60);
 
-  const handleWorkoutName = (e) => {
-    setWorkoutName(e.target.value);
-  };
-  const handleWorkoutTime = (e) => {
-    setWorkoutTime(e.target.value);
-  };
+  // const handleWorkoutName = (e) => {
+  //   setWorkoutName(e.target.value);
+  // };
+  // const handleWorkoutTime = (e) => {
+  //   setWorkoutTime(e.target.value);
+  // };
 
-  //   Currently broken
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // POST
-    axios
-      .post(`${REACT_APP_SERVER_URL}/api/users/exercises/add`, {
-        name: workoutName,
-        time: workoutTime,
-        email: user.email,
-      })
-      .then((response) => {
-        console.log(response);
-        axios
-          .get(`${REACT_APP_SERVER_URL}/api/users/${user.id}`)
-          .then((res) => {
-            console.log(res);
-            setCurrentUser(res.data);
-            toggleAdd(false);
-          })
-          .catch((err) => {
-            console.log('error retrieving user', err);
-          });
-        // console.log(user);
-        // toggleAdd(false);
-        // setCurrentUser({ ...user, ...response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const formInputs = {
-    inputs: [
-      {
-        name: 'Workout Name',
-        value: workoutName,
-        onChange: handleWorkoutName,
-        type: 'text',
-      },
-      {
-        name: 'Time (seconds)',
-        value: workoutTime,
-        onChange: handleWorkoutTime,
-        type: 'number',
-      },
-    ],
-  };
+  // //   Currently broken
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // POST
+  //   axios
+  //     .post(`${REACT_APP_SERVER_URL}/api/users/exercises/add`, {
+  //       name: workoutName,
+  //       time: workoutTime,
+  //       email: user.email,
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //       axios
+  //         .get(`${REACT_APP_SERVER_URL}/api/users/${user.id}`)
+  //         .then((res) => {
+  //           console.log(res);
+  //           setCurrentUser(res.data);
+  //           toggleAdd(false);
+  //         })
+  //         .catch((err) => {
+  //           console.log('error retrieving user', err);
+  //         });
+  //       // console.log(user);
+  //       // toggleAdd(false);
+  //       // setCurrentUser({ ...user, ...response.data });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+  // const formInputs = {
+  //   inputs: [
+  //     {
+  //       name: 'Workout Name',
+  //       value: workoutName,
+  //       onChange: handleWorkoutName,
+  //       type: 'text',
+  //     },
+  //     {
+  //       name: 'Time (seconds)',
+  //       value: workoutTime,
+  //       onChange: handleWorkoutTime,
+  //       type: 'number',
+  //     },
+  //   ],
+  // };
   return (
     <div
       css={css`
@@ -106,28 +106,28 @@ const MyWorkouts = ({ user, setCurrentUser }) => {
       `}
     >
       {/* <h1>My Workouts</h1> */}
-      <WorkoutButton>
+      <WorkoutButton to={`workout/run`}>
         <div>
           <h4>Astronaut Run</h4>
           <p>An intense sprint</p>
         </div>
         <h2>1HR</h2>
       </WorkoutButton>
-      <WorkoutButton>
+      <WorkoutButton to={`workout/row`}>
         <div>
           <h4>Space Row</h4>
           <p>Intergalactic row</p>
         </div>
         <h2>1HR</h2>
       </WorkoutButton>
-      <WorkoutButton>
+      <WorkoutButton to={`workout/yoga`}>
         <div>
           <h4>Gravity Yoga</h4>
           <p>Inhale the space</p>
         </div>
         <h2>1HR</h2>
       </WorkoutButton>
-      <WorkoutButton>
+      <WorkoutButton to={`workout/bike`}>
         <div>
           <h4>Meteor Bike</h4>
           <p>Riding the stars</p>
