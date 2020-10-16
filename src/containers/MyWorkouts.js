@@ -1,9 +1,38 @@
-import React, { useState } from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+import styled from '@emotion/styled';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Form from '../components/Form';
+import { Images } from '../assets';
+// import Form from '../components/Form';
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
+const WorkoutButton = styled.button`
+  width: 305px;
+  height: 135px;
+  background: linear-gradient(
+    108.63deg,
+    rgba(82, 131, 244, 0.78) 47.92%,
+    rgba(82, 131, 244, 0) 117.86%
+  );
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+
+  &:hover {
+    background: linear-gradient(
+      105.51deg,
+      #044cfa 62.47%,
+      rgba(82, 131, 244, 0) 97.51%
+    );
+  }
+`;
 
 const MyWorkouts = ({ user, setCurrentUser }) => {
   const [add, toggleAdd] = useState(false);
@@ -64,9 +93,48 @@ const MyWorkouts = ({ user, setCurrentUser }) => {
     ],
   };
   return (
-    <>
-      <h1>My Workouts</h1>
-      {add ? (
+    <div
+      css={css`
+        background-image: url('${Images.WorkoutBackground}');
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-top: 20px;
+      `}
+    >
+      {/* <h1>My Workouts</h1> */}
+      <WorkoutButton>
+        <div>
+          <h4>Astronaut Run</h4>
+          <p>An intense sprint</p>
+        </div>
+        <h2>1HR</h2>
+      </WorkoutButton>
+      <WorkoutButton>
+        <div>
+          <h4>Space Row</h4>
+          <p>Intergalactic row</p>
+        </div>
+        <h2>1HR</h2>
+      </WorkoutButton>
+      <WorkoutButton>
+        <div>
+          <h4>Gravity Yoga</h4>
+          <p>Inhale the space</p>
+        </div>
+        <h2>1HR</h2>
+      </WorkoutButton>
+      <WorkoutButton>
+        <div>
+          <h4>Meteor Bike</h4>
+          <p>Riding the stars</p>
+        </div>
+        <h2>1HR</h2>
+      </WorkoutButton>
+      {/* {add ? (
         <>
           <p>Create a new exercise</p>
           <Form inputs={formInputs.inputs} onSubmit={handleSubmit} />
@@ -89,8 +157,8 @@ const MyWorkouts = ({ user, setCurrentUser }) => {
             })}
           <button onClick={() => toggleAdd(true)}>Create Exercise</button>
         </>
-      )}
-    </>
+      )} */}
+    </div>
   );
 };
 
