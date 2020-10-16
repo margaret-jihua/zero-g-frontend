@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
+import music from '../assets/music.mp3'
+
 const TimerButton = styled.button`
   background-color: ${(props) => props.color};
   width: 131px;
@@ -71,6 +73,7 @@ const Timer = (props) => {
         // text={seconds > 0 ? `${seconds}s` : `Done!`}
       />
       <div className='row'>
+        <audio src={music} id="audio" loop autoPlay muted={!isActive}/>
         {done ? (
           <TimerButton
             color={buttonColorStates[2]}
