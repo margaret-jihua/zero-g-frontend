@@ -9,6 +9,7 @@ export * from './nav-ellipse';
 export * from './activity-icon';
 export * from './profile-icon';
 export * from './workout-icon';
+export * from './forward';
 
 export const Images = {
   ActivityBackground,
