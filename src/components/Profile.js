@@ -1,39 +1,57 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import WorkoutPreview from './WorkoutPreview';
 
-import plannet1 from '../imgs/Group 239.png'
-import plannet1_cir from '../imgs/Ellipse 78.png'
-import plannet1_cir2 from '../imgs/Ellipse 79.png'
-import circle from '../imgs/Card/Vector.png'
+import plannet from '../assets/profile/Home/Group 245.svg'
+import workout from '../assets/profile/Home/Group 264.svg'
+import menu from '../assets/profile/Group 253.png'
+
 
 const Profile = (props) => {
+  let [showMenu, setShowMenu] = useState('none')
+  
+  const handleMenu = () => {
+    if (showMenu === 'none' ) {
+      setShowMenu('block')
+    } else {
+      setShowMenu('none')
+    }
+  }
+
+
   const userData = props.user ? (
     <div className="profileDiv">
-      <h1>Hello {props.user.name}</h1>
+      <div>
+        <a href="#" onClick={handleMenu}><img src={menu} className="menu"/></a>
+        <div className="menu-items" style={{display: `${showMenu}`}}>
+          <a href="/workouts">Workouts</a>
+          <a href="#">Trips</a>
+          <a href="#">Edit Profile</a>
+          <a href="#" onClick={props.handleLogout}>Logout</a>
+        </div>
+      </div>
+      <h1>Hello {props.user.name.split(" ")[0]}</h1>
       <div >
-        <img src={plannet1}/>
-        {/* <img src={plannet1_cir} style={{position: 'absolute', zIndex: '2'}}/>
-        <img src={plannet1_cir2} style={{position: 'absolute', zIndex: '3'}}/> */}
+        <img src={plannet}/>
       </div>
       <div style={{position: 'relative'}}>
         <p> 57% Complete</p>
         <p>
-          You're on <strong>DAY 1</strong> on your trip to <span style={{ color: 'linear-gradient(#EB0000, #FFDB80)'}}>Saturn</span>!
+          You're on <strong>DAY 1</strong> on your trip to <span className="plannetName">Saturn</span>!
         </p>
 
         <h3>Log your progress below</h3>
-        <p><button className="btn">BMD</button><span style={{marginLeft: '30px'}}></span><button className="btn">MASS</button></p>
-        <h3>Your Next Workout</h3>
+        <p style={{marginTop: '30px'}}><button className="btn">BMD</button><span style={{marginLeft: '30px'}}></span><button className="btn">MASS</button></p>
+        <h3 style={{marginTop: '40px', marginBottom: '10px'}}>Your Next Workout</h3>
         <div className="workoutStatus">
             <div>
               <h4>Astronaut Run</h4>
-              <p> A hour intense run on the trademill perfect to achieve cardio goals.</p>
+              <p style={{ fontSize: '12px'}}> A hour intense run on the trademill perfect to achieve cardio goals.</p>
             </div>
               <div>
-                  <img src={circle} />
+                  <img src={workout}/>
               </div>
-              <a>Start Workout</a>
+              <button className="btn1" >Start Workout</button>
               <p>
                  60% Completed
               </p>
