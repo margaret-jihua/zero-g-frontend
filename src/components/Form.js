@@ -35,9 +35,7 @@ const Form = ({ inputs, onSubmit }) => {
               type={input.type}
               value={input.value}
               onChange={input.onChange}
-              className={
-                input.type === 'range' ? 'range form-control' : 'form-control'
-              }
+              className={input.type === 'range' ? 'range' : 'form-control'}
               placeholder={input.name}
               // required
             />
