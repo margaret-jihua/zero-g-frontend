@@ -5,10 +5,14 @@ import WorkoutPreview from './WorkoutPreview';
 import plannet from '../assets/profile/Home/Group 245.svg'
 import workout from '../assets/profile/Home/Group 264.svg'
 import menu from '../assets/profile/Group 253.png'
-
+import moon from '../assets/moon.png';
+import earth from '../assets/earth.png';
+import mars from '../assets/mars.png';
+import saturn from '../assets/saturn.png';
 
 const Profile = (props) => {
   let [showMenu, setShowMenu] = useState('none')
+  let [destinationPlanet, setDestinationPlanet] = useState()
   
   const handleMenu = () => {
     if (showMenu === 'none' ) {
@@ -17,6 +21,20 @@ const Profile = (props) => {
       setShowMenu('none')
     }
   }
+
+  let userPlanet = props.user.destination.name
+
+  if (userPlanet === 'moon') {
+    setDestinationPlanet(moon)
+  } else if ( userPlanet === 'earth') {
+    setDestinationPlanet(earth)
+  } else if ( userPlanet === 'mars') {
+    setDestinationPlanet(mars)
+  } else if ( userPlanet === 'saturn') {
+    setDestinationPlanet(saturn)
+  }
+
+  let tripCompleted = Math.floor((props.user.destination.daysInTrip / props.user.destination.totalTripDays) * 100)
 
 
   const userData = props.user ? (
@@ -32,10 +50,10 @@ const Profile = (props) => {
       </div>
       <h1>Hello {props.user.name.split(" ")[0]}</h1>
       <div >
-        <img src={plannet}/>
+        <img src={destinationPlanet}/>
       </div>
       <div style={{position: 'relative'}}>
-        <p> 57% Complete</p>
+        <p> {tripCompleted}% Complete</p>
         <p>
           You're on <strong>DAY {props.user.destination.daysInTrip}</strong> on your trip to <span className="plannetName">Saturn</span>!
         </p>
