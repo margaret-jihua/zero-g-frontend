@@ -7,6 +7,7 @@ import {
   CircularProgressbarWithChildren,
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { Link } from 'react-router-dom';
 import { Images, ActivityButton } from '../assets';
 
 const Activity = () => {
@@ -75,7 +76,9 @@ const Activity = () => {
               </h3>
             </CircularProgressbarWithChildren>
           </div>
-          <ActivityButton />
+          <Link to='/workout/run'>
+            <ActivityButton />
+          </Link>
         </div>
         <div
           css={css`
@@ -105,7 +108,9 @@ const Activity = () => {
               </h3>
             </CircularProgressbarWithChildren>
           </div>
-          <ActivityButton />
+          <Link to='/workout/row'>
+            <ActivityButton />
+          </Link>
         </div>
         <div
           css={css`
@@ -135,7 +140,9 @@ const Activity = () => {
               </h3>
             </CircularProgressbarWithChildren>
           </div>
-          <ActivityButton />
+          <Link to='/workout/bike'>
+            <ActivityButton />
+          </Link>
         </div>
         <p
           css={css`
